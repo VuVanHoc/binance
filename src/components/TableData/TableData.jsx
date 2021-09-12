@@ -31,6 +31,7 @@ export default function TableData({ data, formatter }) {
           <TableRow>
             <TableCell className={classes.tableCellHeader}>Type</TableCell>
             <TableCell className={classes.tableCellHeader}>Symbol</TableCell>
+            <TableCell className={classes.tableCellHeader}>Leverage</TableCell>
             <TableCell className={classes.tableCellHeader}>Size</TableCell>
             <TableCell className={classes.tableCellHeader}>
               Size (USDT)
@@ -47,7 +48,6 @@ export default function TableData({ data, formatter }) {
             <TableCell className={classes.tableCellHeader}>
               Unrealized PNL (ROE%)
             </TableCell>
-            <TableCell className={classes.tableCellHeader}>Leverage</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -61,6 +61,7 @@ export default function TableData({ data, formatter }) {
                 )}
               </TableCell>
               <TableCell>{row.symbol}</TableCell>
+              <TableCell>{`X${row.leverage} (${row.marginType})`}</TableCell>
               <TableCell>
                 {row.positionAmt} {row.symbol.slice(0, 3)}
               </TableCell>
@@ -85,7 +86,6 @@ export default function TableData({ data, formatter }) {
                   {Number(row.unrealizedProfit).toFixed(2)}
                 </Typography>
               </TableCell>
-              <TableCell>{`X${row.leverage} (${row.marginType})`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
